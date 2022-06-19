@@ -68,6 +68,25 @@ saturn.rotation.x += 0.5
 scene.add(saturn)
 
 
+function moveCamera () {
+    const t = document.body.getBoundingClientRect().top
+
+    saturn.rotation.x += 0.05
+    saturn.rotation.y += 0.075
+    saturn.rotation.z += 0.05
+
+    saturnRing.rotation.x += 0.05
+    saturnRing.rotation.y += 0.075
+    saturnRing.rotation.z += 0.05
+    
+    camera.rotation.x = t * -0.05
+    camera.rotation.y = t * -0.075
+    camera.rotation.z = t * -0.05
+}
+
+document.body.onscroll = moveCamera
+
+
 function animate() {
     requestAnimationFrame(animate);
 
