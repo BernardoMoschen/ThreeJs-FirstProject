@@ -83,6 +83,17 @@ saturn.rotation.x += 0.5
 scene.add(saturn)
 
 
+// Myself :)
+
+const myselfTexture  = new THREE.TextureLoader().load('./assets/myself.jpeg')
+const myself = new THREE.Mesh(new THREE.BoxGeometry(3, 3, 3), new THREE.MeshBasicMaterial({ map: myselfTexture }));
+
+scene.add(myself);
+
+myself.position.z = -5;
+myself.position.x = 3;
+
+
 // Moon
 
 const moonTexture = new THREE.TextureLoader().load('./assets/moon.jpg');
@@ -111,6 +122,9 @@ function moveCamera() {
   
     saturn.rotation.y += 0.01;
     saturn.rotation.z += 0.01;
+
+    myself.rotation.y += 0.01;
+    myself.rotation.z += 0.01;
   
     camera.position.z = t * -0.01;
     camera.position.x = t * -0.0002;
