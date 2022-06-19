@@ -15,11 +15,12 @@ camera.position.setZ(30)
 renderer.render(scene, camera)
 
 const geometry = new THREE.TorusGeometry(8, 2, 2, 100)
-const material = new THREE.MeshStandardMaterial({ color: 0xFF6347} )
-const torus = new THREE.Mesh(geometry, material)
-torus.rotation.x += 5
+const saturnRingTexture = new THREE.TextureLoader().load('./assets/saturnRingTexture.png')
+const material = new THREE.MeshStandardMaterial({ map: saturnRingTexture} )
+const saturnRing = new THREE.Mesh(geometry, material)
+saturnRing.rotation.x += 5
 
-scene.add(torus)
+scene.add(saturnRing)
 
 const pointLight = new THREE.PointLight(0xffffff)
 pointLight.position.set(5,5,5)
@@ -66,7 +67,7 @@ scene.add(saturn)
 function animate() {
     requestAnimationFrame(animate);
 
-    torus.rotation.z += 0.0035
+    saturnRing.rotation.z += 0.0035
 
     renderer.render(scene, camera)
 
