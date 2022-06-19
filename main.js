@@ -14,7 +14,7 @@ camera.position.setZ(30)
 
 renderer.render(scene, camera)
 
-const geometry = new THREE.TorusGeometry(10, 4, 2, 100)
+const geometry = new THREE.TorusGeometry(8, 2, 2, 100)
 const material = new THREE.MeshStandardMaterial({ color: 0xFF6347} )
 const torus = new THREE.Mesh(geometry, material)
 torus.rotation.x += 5
@@ -45,6 +45,22 @@ function addStar() {
 
 Array(200).fill().forEach(addStar)
 
+const spaceTexture = new THREE.TextureLoader().load('./assets/space.jpg')
+scene.background = spaceTexture
+
+// Saturn
+
+const saturnTexture = new THREE.TextureLoader().load('./assets/saturnTexture.jpg')
+
+const saturn = new THREE.Mesh(
+    new THREE.SphereGeometry(5, 32,32),
+    new THREE.MeshStandardMaterial({
+    map: saturnTexture
+})
+)
+saturn.rotation.x += 0.5
+
+scene.add(saturn)
 
 
 function animate() {
