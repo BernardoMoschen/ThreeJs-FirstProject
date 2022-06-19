@@ -13,18 +13,17 @@ camera.position.setZ(30)
 
 renderer.render(scene, camera)
 
-const geometry = new THREE.TorusGeometry(10, 3, 16, 100)
-const material = new THREE.MeshBasicMaterial({ color: 0xFF6347, wireframe: true} )
+const geometry = new THREE.TorusGeometry(10, 4, 2, 100)
+const material = new THREE.MeshStandardMaterial({ color: 0xFF6347} )
 const torus = new THREE.Mesh(geometry, material)
+torus.rotation.x += 5
 
 scene.add(torus)
 
 function animate() {
     requestAnimationFrame(animate);
 
-    torus.rotation.x += 0.02
-    torus.rotation.y += 0.001
-    torus.rotation.z += 0.02
+    torus.rotation.z += 0.0035
 
     renderer.render(scene, camera)
 }
