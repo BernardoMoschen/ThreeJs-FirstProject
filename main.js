@@ -52,11 +52,12 @@ scene.background = spaceTexture
 // Saturn
 
 const saturnTexture = new THREE.TextureLoader().load('./assets/saturnTexture.jpg')
-
+const saturnGroundTexture = new THREE.TextureLoader().load('./assets/normal.jpg')
 const saturn = new THREE.Mesh(
     new THREE.SphereGeometry(5, 32,32),
     new THREE.MeshStandardMaterial({
-    map: saturnTexture
+    map: saturnTexture,
+    normalMap: saturnGroundTexture
 })
 )
 saturn.rotation.x += 0.5
